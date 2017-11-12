@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Jones Automotive provides all mechanical repairs and services from WoF work to full rebuilds, we can service any vehicle you may want serviced with over 40 years collective experience between team at Jones Auto, nothing is beyond our abilities.">
+    <meta name="author" content="">
+    <title>Jones Automotive Services, Petone</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- JQuery -->
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+    <!-- Theme CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+</head>
+<body id="page-top" class="index">
+
+    <div class="hero-image">
+      <div class="hero-text">
+        <!-- <h1>I am John Doe</h1>
+        <p>And I'm a Photographer</p>
+        <button>Hire me</button> -->
+    </div>
+</div>
+
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Contact Us</h2>
+                <h3 class="section-subheading text-muted">Send us an email and we'll get back to you as soon as we can.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row">
+                        <div class="col-lg-12 partition">
+                            <input id="subject" type="text" class="form-control userInput" placeholder="Subject" />
+                            <textarea id="content" class="form-control userInput" rows="5" placeholder="Write your inquiry here."></textarea>
+                            <input id="name" type="text" class="form-control userInput" placeholder="Your Name">
+                            <input id="from" type="text" class="form-control userInput" placeholder="Your Email">
+                            <input id="number" type="text" class="form-control userInput" placeholder="Contact Number" />
+                            <button class="btn btn-default userInput" id="send_email">Send Email</button>
+                            <span id="message"></span>
+                        </div>
+                        <script>
+                            $(document).ready(function(){
+                                var email,subject,text,number;
+                                $("#send_email").click(function(){
+                                    name=$("#name").val();  
+                                    number=$("#number").val();    
+                                    subject=$("#subject").val();
+                                    text=$("#content").val();
+                                    email=$("#from").val();
+                                    $("#message").text("Sending E-mail...Please wait");
+                                    text = (text + "\n\nContact Email: " + email);
+                                    text = (text + "\nContact Number: " + number);
+                                    subject = (subject + " - " + name);
+                                    $.get("http://www.jonesautomotive.co.nz/send",{subject:subject,text:text},function(data){
+                                    //$.get("http://localhost:8080/send",{subject:subject,text:text},function(data){
+                                        if(data=="sent")
+                                        {
+                                            $("#message").empty().html("Email has been sent. We will get back to you as soon as we can!");
+                                        }
+                                        else{
+                                            $("#message").empty().html("Sorry! There was a problem in sending your email please try again.");
+                                        }
+                                    });
+
+                                });
+                            });
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-inline social-buttons">
+                    <span class="copyright">Developed by Samual Holmes with Bootstrap</span>
+                    <li title="LinkedIn"><a href="https://www.linkedin.com/in/samual-holmes-720a2713a" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <li title="GitHub"><a href="https://github.com/SKHolmes" target="_blank"><i class="fa fa-github"></i></a>
+                            <li title="CV"><a href="skholmes.github.io" target="_blank"><i class="fa fa-address-card"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+        <!-- Contact Form JavaScript -->
+        <!--    <script src="js/jqBootstrapValidation.js"></script> -->
+
+        <!-- Theme JavaScript -->
+        <script src="js/agency.js"></script>
+
+    </body>
+    </html>
