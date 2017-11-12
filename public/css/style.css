@@ -28,3 +28,39 @@ body, html {
     transform: translate(-50%, -50%);
     color: white;
 }
+
+.userInput{
+    min-width: 100%;
+    margin: 4px;
+    max-height: 10%;
+}
+.row{
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+}
+
+#map {
+    margin: auto;
+    height: 250px;
+    width: 400px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #000000;
+    border-radius: 3px;
+}
+
+#content{
+    resize: none;
+}
+
+.partition{
+    text-align: center;
+}
+
+.subText{
+    color: #89a0c4;
+}
+
+h1{
+    color: #89a0c4 !important;
+}

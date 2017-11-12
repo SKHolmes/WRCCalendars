@@ -9,8 +9,8 @@ var transport = nodemailer.createTransport({
   //secureConnection: false, // use SSL
   //port: 587, // port for secure SMTP
   auth: {
-    user: 'jonesautomotive.mailer@gmail.com',
-    pass: 'tysclzukmvzsipmw'
+    user: 'wrccalendars@gmail.com',
+    pass: 'ilikepie123'
   }
 });
 
@@ -32,8 +32,8 @@ app.get('/', function(req, res) {
 
 app.get('/send',function(req,res){
 	var mailOptions={
-		from : 'jonesautomotive.mailer@gmail.com',
-		to:'jonesautomotive@xtra.co.nz',
+		from : 'wrccalendars@gmail.com',
+		to:'samualkholmes@gmail.com',
 		subject : req.query.subject,
 		text : req.query.text
 	}
