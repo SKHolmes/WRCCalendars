@@ -65,6 +65,10 @@ h1{
     color: #89a0c4 !important;
 }
 
+h3{
+    line-height: 24px !important;
+}
+
 .formControl::placeholder{
     color: #555555;
 }
