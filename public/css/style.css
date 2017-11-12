@@ -64,3 +64,7 @@ body, html {
 h1{
     color: #89a0c4 !important;
 }
+
+.formControl::placeholder{
+    color: #555555;
+}
