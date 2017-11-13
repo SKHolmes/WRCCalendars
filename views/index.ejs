@@ -56,55 +56,55 @@
 
                             <div class="form-group">
                                 <label class="section-subheading text-muted" for="calNum">Number of Calendars ($25ea) We will get in contact with you for payment details.</label>
-                              <select class="form-control userInput" id="calNum">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
+                                <select class="form-control userInput" id="calNum">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label class="section-subheading text-muted" for="delOrPic">Delivery or Pickup (We will get in contact with you for convienient time.)</label>
-                              <select class="form-control userInput" id="delOrPic">
-                                <option>Delivery</option>
-                                <option>Pick Up</option>                                
-                            </select>
+                                <select class="form-control userInput" id="delOrPic">
+                                    <option>Delivery</option>
+                                    <option>Pick Up</option>                                
+                                </select>
+                            </div>
+                            <input id="name" type="text" class="form-control userInput" placeholder="Your Name">
+                            <input id="address" type="text" class="form-control userInput" placeholder="Your Address">
+                            <input id="from" type="text" class="form-control userInput" placeholder="Your Email">                        
+                            <input id="number" type="text" class="form-control userInput" placeholder="Contact Number" />
+                            <button class="btn btn-default userInput" id="send_email">Send Email</button>
+                            <h2 class="section-heading" id="message"></h2>
                         </div>
-                        <input id="name" type="text" class="form-control userInput" placeholder="Your Name">
-                        <input id="address" type="text" class="form-control userInput" placeholder="Your Address">
-                        <input id="from" type="text" class="form-control userInput" placeholder="Your Email">                        
-                        <input id="number" type="text" class="form-control userInput" placeholder="Contact Number" />
-                        <button class="btn btn-default userInput" id="send_email">Send Email</button>
-                        <h2 class="section-heading" id="message"></h2>
-                    </div>
-                    <script>
-                        $(document).ready(function(){
-                            var name,email,address,subject,text,number,calNum,plural;
-                            $("#send_email").click(function(){
-                                name=$("#name").val();
-                                calNum=$("#calNum").val();
-                                address=$("#address").val();
-                                address = address.replace(/,/g, "|");
-                                email=$("#from").val();
-                                number=$("#number").val();
-                                delOrPic=$("#delOrPic").val();                                      
+                        <script>
+                            $(document).ready(function(){
+                                var name,email,address,subject,text,number,calNum,plural;
+                                $("#send_email").click(function(){
+                                    name=$("#name").val();
+                                    calNum=$("#calNum").val();
+                                    address=$("#address").val();
+                                    address = address.replace(/,/g, "|");
+                                    email=$("#from").val();
+                                    number=$("#number").val();
+                                    delOrPic=$("#delOrPic").val();                                      
 
-                                plural = parseInt(calNum) < 2 ? " Calendar" : " Calendars";
-                                $("#message").text("Sending E-mail...Please wait");
-                                text = ("\n\nContact Email: " + email);
-                                text = (text + "\nContact Number: " + number);
+                                    plural = parseInt(calNum) < 2 ? " Calendar" : " Calendars";
+                                    $("#message").text("Sending E-mail...Please wait");
+                                    text = ("\n\nContact Email: " + email);
+                                    text = (text + "\nContact Number: " + number);
 
-                                subject = (name + ": " + calNum + plural);
-                                        /*$.get("https://wrc-fundraiser.herokuapp.com/send",{subject:subject,text:text,name:name,calNum:calNum,
-                                            address:address,email:email,number:number,delOrPic:delOrPic},function(data){*/
-                                                $.get("http://localhost:8080/send",{subject:subject,text:text,name:name,calNum:calNum,
-                                                    address:address,email:email,number:number,delOrPic:delOrPic},function(data){
+                                    subject = (name + ": " + calNum + plural);
+                                    $.get("https://wrc-fundraiser.herokuapp.com/send",{subject:subject,text:text,name:name,calNum:calNum,
+                                        address:address,email:email,number:number,delOrPic:delOrPic},function(data){
+                                                /*$.get("http://localhost:8080/send",{subject:subject,text:text,name:name,calNum:calNum,
+                                                    address:address,email:email,number:number,delOrPic:delOrPic},function(data){*/
                                                         if(data=="sent")
                                                         {
                                                             $("#message").empty().html("Email has been sent. We will get back to you as soon as we can!");
@@ -114,14 +114,14 @@
                                                         }
                                                     });
 
-                                            });
-                        });
-                    </script>
-                </div>
-            </form>
+                                });
+                            });
+                        </script>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </section>
 <footer>
     <ul class="list-inline social-buttons">
