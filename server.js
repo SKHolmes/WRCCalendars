@@ -44,7 +44,7 @@ app.get('/send',function(req,res){
 		subject : req.query.subject,
 		text : req.query.text
 	}
-	//console.log(mailOptions);
+	
 	fs.readFile(__dirname + '/public/id.txt', 'utf8', function(error, data){
 		if(error){
 			return console.log(error);
