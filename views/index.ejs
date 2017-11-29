@@ -137,7 +137,7 @@ With orders being taken now, this not-so-serious calendar with a serious message
                                     text = (text + "\nContact Number: " + number);
 
                                     subject = (name + ": " + calNum + plural);
-                                    $.get("https://wrc-fundraiser.herokuapp.com/send",{subject:subject,text:text,name:name,calNum:calNum,
+                                    $.get("http://wrc-fundraiser.herokuapp.com/send",{subject:subject,text:text,name:name,calNum:calNum,
                                         address:address,email:email,number:number,delOrPic:delOrPic,plural:plural},function(data){
                                                /* $.get("http://localhost:8080/send",{subject:subject,text:text,name:name,calNum:calNum,
                                                     address:address,email:email,number:number,delOrPic:delOrPic,plural:plural},function(data){*/
