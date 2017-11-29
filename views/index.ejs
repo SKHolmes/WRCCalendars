@@ -135,6 +135,7 @@ With orders being taken now, this not-so-serious calendar with a serious message
                                     $("#message").text("Sending E-mail...Please wait");
                                     text = ("\n\nContact Email: " + email);
                                     text = (text + "\nContact Number: " + number);
+                                    text = (text + "\nAddress: " + $("#address").val());
 
                                     subject = (name + ": " + calNum + plural);
                                     $.get("http://wrc-fundraiser.herokuapp.com/send",{subject:subject,text:text,name:name,calNum:calNum,
