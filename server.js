@@ -40,8 +40,8 @@ app.get('/send',function(req,res){
 	console.log('here');
 	var WRCMailOptions={
 		from : 'wrccalendars@gmail.com',
-		//to:'wrccommunications01@gmail.com',
-		to:'samualkholmes@gmail.com',
+		to:'wrccommunications01@gmail.com',
+		//to:'samualkholmes@gmail.com',
 		subject : req.query.subject,
 		text : req.query.text
 	}
