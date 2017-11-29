@@ -37,13 +37,15 @@ app.get('/', function(req, res) {
 });
 
 app.get('/send',function(req,res){
-	var mailOptions={
+	console.log('here');
+	var WRCMailOptions={
 		from : 'wrccalendars@gmail.com',
 		to:'wrccommunications01@gmail.com',
 		//to:'samualkholmes@gmail.com',
 		subject : req.query.subject,
 		text : req.query.text
 	}
+	
 	
 	fs.readFile(__dirname + '/public/id.txt', 'utf8', function(error, data){
 		if(error){
@@ -57,6 +59,22 @@ app.get('/send',function(req,res){
 			}
 		});
 
+		var text = 'Thank you for supporting the Wellington Rowing Club!\n\nPlease put $25 per calendar you purchased into this account: 38-9015-0150619-06, named WRC Calendar 2018.\n\nIf you wish your money to go towards the Club Men please use this code as reference: MEN'+id+', for the Club Women please use WMN'+id+' and for the Novices please use the code NOV'+id+'.\n\n10% of all sales regardless go to the Mental Health Foundation! If you wish to learn more about mental health check out the MHF at www.mentalhealth.org.nz\n\nOnce again the Welliington Rowing Club appreciates your support.\n\nKind regards,\nThe Wider Wellington Rowing Club Community.';
+		console.log(req.query.email);
+		var userMailOptions ={
+			from: 'wrccalendars@gmail.com',
+			to: req.query.email,
+			subject: 'Thank you for purchasing ' + req.query.calNum + req.query.plural + '!',
+			text: text
+		}
+		transport.sendMail(userMailOptions, function(error, response){
+			if(error){
+				console.log(error);
+			}else{
+				console.log("Message sent: " + response);
+			}
+		});
+
 		
 		fs.writeFile(__dirname + '/public/id.txt', (""+(id+1)), 'utf8', function(error, data){
 			if(error){
@@ -65,7 +83,7 @@ app.get('/send',function(req,res){
 		});
 	});
 
-	transport.sendMail(mailOptions, function(error, response){
+	transport.sendMail(WRCMailOptions, function(error, response){
 		if(error){
 			console.log(error);
 			res.end(error + '\n\n\n' + response);

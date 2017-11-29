@@ -6,7 +6,20 @@ body, html {
 .hero-image {
     /* The image used */
     background-image: url("../images/hero.jpg");
+    /* Set a specific height */
+    height: 100%;
+    width: 100%;
 
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+
+}
+img{
     /* Set a specific height */
     height: 100%;
     width: 100%;
@@ -18,7 +31,6 @@ body, html {
     background-size: cover;
     position: relative;
 }
-
 /* Place text in the middle of the image */
 .hero-text {
     text-align: center;
