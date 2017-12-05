@@ -41,7 +41,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="../images/hero.jpg" alt="Error loading images :(">
+      <img src="../images/hero.png" alt="Error loading images :(">
     </div>
 
     <div class="item">
@@ -111,17 +111,22 @@ With orders being taken now, this not-so-serious calendar with a serious message
                                     <option>Pick Up</option>                                
                                 </select>
                             </div>
+                            <label class="section-subheading text-muted" for="from">Your Full Name.</label>
                             <input id="name" type="text" class="form-control userInput" placeholder="Your Name">
+                            <label class="section-subheading text-muted" for="from">Your address, this will be where we deliver if you opted for it.</label>
                             <input id="address" type="text" class="form-control userInput" placeholder="Your Address">
                              <label class="section-subheading text-muted" for="from">Please ensure your email is correct, we will use this as a primary means of contact.</label>
-                            <input id="from" type="text" class="form-control userInput" placeholder="Your Email">                        
+                            <input id="from" type="text" class="form-control userInput" placeholder="Your Email">  
+                             <label class="section-subheading text-muted" for="support">If there is a particular group or person at the rowing club you wish to support with this purchase name them here!</label>
+                             <input id="support" type="text" class="form-control userInput" placeholder="Enter Group / Person Name Here" />    
+                             <label class="section-subheading text-muted" for="from">Contact number.</label>                  
                             <input id="number" type="text" class="form-control userInput" placeholder="Contact Number" />
                             <button class="btn btn-default userInput" id="send_email">Send Email</button>
                             <h2 class="section-heading" id="message"></h2>
                         </div>
                         <script>
                             $(document).ready(function(){
-                                var name,email,address,subject,text,number,calNum,plural;
+                                var name,email,address,subject,text,number,calNum,plural,support;
                                 $("#send_email").click(function(){
                                     name=$("#name").val();
                                     calNum=$("#calNum").val();
@@ -129,7 +134,8 @@ With orders being taken now, this not-so-serious calendar with a serious message
                                     address = address.replace(/,/g, "|");
                                     email=$("#from").val();
                                     number=$("#number").val();
-                                    delOrPic=$("#delOrPic").val();                                      
+                                    delOrPic=$("#delOrPic").val();    
+                                    support=$("#support").val();                                 
 
                                     plural = parseInt(calNum) < 2 ? " Calendar" : " Calendars";
                                     $("#message").text("Sending E-mail...Please wait");
@@ -139,7 +145,7 @@ With orders being taken now, this not-so-serious calendar with a serious message
 
                                     subject = (name + ": " + calNum + plural);
                                     $.get("http://wrc-fundraiser.herokuapp.com/send",{subject:subject,text:text,name:name,calNum:calNum,
-                                        address:address,email:email,number:number,delOrPic:delOrPic,plural:plural},function(data){
+                                        address:address,email:email,number:number,delOrPic:delOrPic,plural:plural,support:support},function(data){
                                                /* $.get("http://localhost:8080/send",{subject:subject,text:text,name:name,calNum:calNum,
                                                     address:address,email:email,number:number,delOrPic:delOrPic,plural:plural},function(data){*/
                                                         if(data=="sent")

@@ -52,14 +52,14 @@ app.get('/send',function(req,res){
 			return console.log(error);
 		}
 		var id = parseInt(data);
-		var order = id + "," + req.query.name + "," + req.query.calNum + "," + req.query.address + "," + req.query.email + "," + req.query.number + "," + req.query.delOrPic + ",No,\n";
+		var order = id + "," + req.query.name + "," + req.query.calNum + "," + req.query.address + "," + req.query.email + "," + req.query.number + "," + req.query.delOrPic+ "," + req.query.support + ",No,\n";
 		fs.appendFile(__dirname + '/public/orders.csv', order, 'utf8', function(error, data){
 			if(error){
 				return console.log("Error writing order: "+order);
 			}
 		});
 
-		var text = 'Thank you for supporting the Wellington Rowing Club!\n\nPlease put $25 per calendar you purchased into this account: 38-9015-0150619-06, named WRC Calendar 2018.\n\nIf you wish your money to go towards the Club Men please use this code as reference: MEN'+id+', for the Club Women please use WMN'+id+' and for the Novices please use the code NOV'+id+'.\n\n10% of all sales regardless go to the Mental Health Foundation! If you wish to learn more about mental health check out the MHF at www.mentalhealth.org.nz\n\nOnce again the Welliington Rowing Club appreciates your support.\n\nKind regards,\nThe Wider Wellington Rowing Club Community.';
+		var text = 'Thank you for supporting the Wellington Rowing Club!\n\nPlease put $25 per calendar you purchased into this account: 38-9015-0150619-06, named WRC Calendar 2018.\n\nPlease use this number as your reference when making payments '+id+'. If you with to pay with cash just get in touch with someone at the Wellington Rowing Club and we can sort something out.\n\n10% of all sales regardless go to the Mental Health Foundation! If you wish to learn more about mental health check out the MHF at www.mentalhealth.org.nz\n\nOnce again the Welliington Rowing Club appreciates your support.\n\nKind regards,\nThe Wider Wellington Rowing Club Community.';
 		console.log(req.query.email);
 		var userMailOptions ={
 			from: 'wrccalendars@gmail.com',
