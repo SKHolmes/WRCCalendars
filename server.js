@@ -59,7 +59,7 @@ app.get('/send',function(req,res){
 			}
 		});
 
-		var text = 'Thank you for supporting the Wellington Rowing Club!\n\nPlease put $25 per calendar you purchased into this account: 38-9015-0150619-06, named WRC Calendar 2018.\n\nPlease use this number as your reference when making payments '+id+'. If you with to pay with cash just get in touch with someone at the Wellington Rowing Club and we can sort something out.\n\n10% of all sales regardless go to the Mental Health Foundation! If you wish to learn more about mental health check out the MHF at www.mentalhealth.org.nz\n\nOnce again the Welliington Rowing Club appreciates your support.\n\nKind regards,\nThe Wider Wellington Rowing Club Community.';
+		var text = 'Thank you for supporting the Wellington Rowing Club!\n\nPlease put $25 per calendar you purchased into this account: 38-9015-0150619-06, named WRC Calendar 2018.\n\nPlease use your name as your reference when making payments. If you wish to pay with cash, just get in touch with someone at the Wellington Rowing Club and we can sort something out.\n\n10% of all sales regardless go to the Mental Health Foundation! If you wish to learn more about mental health check out the MHF at www.mentalhealth.org.nz\n\nOnce again the Welliington Rowing Club appreciates your support.\n\nKind regards,\nThe Wider Wellington Rowing Club Community.';
 		console.log(req.query.email);
 		var userMailOptions ={
 			from: 'wrccalendars@gmail.com',
