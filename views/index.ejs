@@ -142,6 +142,10 @@ With orders being taken now, this not-so-serious calendar with a serious message
                                     text = ("\n\nContact Email: " + email);
                                     text = (text + "\nContact Number: " + number);
                                     text = (text + "\nAddress: " + $("#address").val());
+                                    text = (text + "\nName: " + name);
+                                    text = (text + "\nNo. of calendars: " + calNum);
+                                    text = (text + "\nDelivery or Pickup: " + delOrPic);
+                                    text = (text + "\nWRC group/person: " + support);
 
                                     subject = (name + ": " + calNum + plural);
                                     $.get("http://wrc-fundraiser.herokuapp.com/send",{subject:subject,text:text,name:name,calNum:calNum,
